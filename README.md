@@ -18,45 +18,41 @@ Andrés Ramírez Arenas: Participa como "Hardware Integration Engineer"
 
 ###### 1\. Introducción:
 
-&nbsp;	El diseño y la implementación de sistemas autónomos capaces de navegar en entornos estructurados pero desconocidos representa uno de los desafíos más significativos en la ingeniería electrónica y de control contemporánea. En el ámbito de los sistemas embebidos, este problema se sintetiza tradicionalmente a través de la plataforma de competencia Micro Mouse, la cual sirve como un banco de pruebas riguroso para la integración de hardware y firmware de alta precisión.
+&nbsp;	Los sistemas de clasificacián automatizada estan ampliamente extendidos en la industria y resultan actualmente en unos de los mas importantes ya que reducen en gran manera la intervencion humana y aumentan la productividad considerablemente. Estos sistemas capaces de organizar mercancias segun sus caracteristicas fisicas (tamaño, color, forma, peso, etc) permiten a las empresas gestionar grandes volumenes de inventario reduciendo errores y tiempo.
 
 
 
-&nbsp;	El problema fundamental que aborda este sistema es la incertidumbre espacial y la optimización de trayectorias bajo restricciones de recursos. En un entorno industrial o de exploración, los dispositivos a menudo deben operar en áreas donde la señal de GPS es inexistente y los mapas no están disponibles de forma previa. Esto exige que el sistema embebido posea una arquitectura de procesamiento capaz de ejecutar algoritmos de mapeo probabilístico y toma de decisiones en tiempo real, transformando señales analógicas y digitales de baja fidelidad en un modelo lógico del entorno.
-
-
-
-&nbsp;	Contextualmente, un robot de este tipo no es solo un vehículo móvil; es una unidad de procesamiento distribuido que debe gestionar simultáneamente el control de lazo cerrado de motores, la filtración de ruido en señales de sensores y la gestión de protocolos de comunicación síncronos y asíncronos. La relevancia de este sistema radica en su capacidad para demostrar cómo la aplicación de buenas prácticas de ingeniería —como el determinismo en el tiempo de ejecución y la modularidad del código— permite resolver problemas complejos de navegación autónoma que son directamente escalables a vehículos de guiado automático (AGVs) en logística y robots de inspección en infraestructuras críticas.
+&nbsp;	El problema central que este proyecto pretende solucionar es la transformacion de datos del entorno fisico en decisiones logicas. En un proceso continuo, el sistema debe ser capaz de identificar variables fisicas con gran velocidad y exactitud para poder tomar una decisión. Para este proyecto especificamente se considerara como variable fisica el volumen de una caja y la decisión a tomar será donde disponer dicha caja.
 
 
 
 ###### 2\. Alcance del Proyecto
 
-El presente proyecto se circunscribe al diseño, desarrollo e implementación de un sistema embebido autónomo de alta precisión, cuya arquitectura está orientada a la resolución de problemas de navegación y optimización de trayectorias. El alcance técnico se define mediante los siguientes ejes fundamentales:
+El presente proyecto consta del diseño, desarrollo e implementación de un sistema embebido autonomo orientado a la clasificación de elemetos por tamaño.. El alcance técnico se define mediante los siguientes ejes fundamentales:
 
 
 
-Infraestructura de Hardware y Potencia: El proyecto abarca el diseño e integración de una plataforma física autopropulsada. Esto incluye la gestión de energía, el acondicionamiento de señales provenientes de transductores y la implementación de etapas de potencia capaces de accionar elementos electromecánicos con resolución variable.
+Infraestructura de Hardware y Potencia: Comprende el diseño de una estructura de transporte y un sistema fisico de desviación; además de un sistema de gestion energetica necesaria para alimentar la logica de control como los actuadores involucrados en el proceso, asegurando que el sistema responda con la velocidad, fuerza y exactitud requerida en cada tarea.
 
 
 
-Capa de Percepción y Sensado: Se establece la integración de un subsistema de adquisición de datos para la medición de variables físicas del entorno y del estado interno del sistema. El alcance incluye la digitalización, el filtrado y el procesamiento de estas variables para alimentar los algoritmos de toma de decisiones.
+Percepción y Sensado: Comprende un sistema encargado de la adquisision de señales (medición de variables), su acondicionamiento y transmisión. Con el fin de obtener lecturas de datos limpios para que funcionen como la base de la logica de clasificación.
 
 
 
-Arquitectura de Firmware y Control: El desarrollo de software embebido se fundamenta en un diseño estructurado y modular. Se implementarán lazos de control realimentados, algoritmos de búsqueda y una lógica de navegación basada en eventos que garantice un comportamiento determinista ante cambios en el entorno.
+Logica de control y procesamiento: Centrado en una estructura de programación organizada que le permita al sistema reaccionar de forma predecible. Se implementan algoritmos para el calculo de dimensiones a partir de los datos obtenidos por el sistema de sensado; se gestionan tiempos de respuesta y la activación coordinada de los actuadores de desvío.
 
 
 
-Gestión de Comunicaciones Multiprotocolo: El sistema integrará canales de comunicación normalizados para la interacción con periféricos externos. Esto incluye buses de datos de alta velocidad para el intercambio de información local y enlaces de telemetría para el diagnóstico del sistema en tiempo real.
+Gestión de Comunicaciones: El sistema debe tener canales de comunicación mediante protocolos estandarizados, para la transmisión de datos internos como externos. Esto es tanto para la lectura digital de los sensores como para la posterior visualización en una interfaz o guardado de los datos para su analisis.
 
 
 
-Subsistema de Trazabilidad y Registro (Logging): El alcance contempla la creación de un motor de persistencia de datos. Este subsistema debe ser capaz de registrar eventos críticos, estados del procesador y lecturas sensoriales en una unidad de memoria no volátil para su posterior auditoría técnica.
+Subsistema de Trazabilidad y Registro (Logging): Se contempla la creación de una función de seguimiento que documente el comportamiento del sistema. Este registro debe identificar el estado de los procesos, confirmar las clasificaciones exitosas y alertar sobre posibles anomalías operativas para facilitar el mantenimiento técnico.
 
 
 
-Interfaz de Usuario y Gestión de Estados: Se diseñará un entorno de interacción física que permita al operador humano monitorear el estado del sistema, configurar parámetros de operación y ejecutar rutinas de prueba de manera directa sobre el hardware.
+Interfaz de Usuario y Gestión de Estados: Se diseñará un entorno de interacción física que permita al operador humano monitorear el estado del sistema, configurar parámetros de clasificación y/o visualizar estadisticas del sistema.
 
 
 
@@ -68,10 +64,14 @@ Validación y Pruebas de Integración: El proyecto concluye con una fase de veri
 
 Objetivo General
 
-Desarrollar un sistema embebido funcional y autónomo basado en la arquitectura de un robot móvil, orientado a la resolución de problemas de navegación compleja mediante la aplicación rigurosa de estándares de ingeniería, asegurando un diseño de firmware determinista, hardware trazable y una gestión robusta de fallos.
+Desarrollar un sistema de clasificación autónomo y eficiente, capaz de categorizar objetos según sus dimensiones físicas mediante un control electrónico preciso, garantizando la trazabilidad de los eventos y la flexibilidad ante diferentes requerimientos operativos.
 
 
 
 Objetivos Específicos
 
-Ingeniería de Requisitos y Trazabilidad: Establecer una matriz de requisitos técnicos que vincule cada sensor, actuador y línea de código con una funcionalidad específica del sistema, garantizando que el diseño final sea una respuesta directa a las necesidades del proyecto.
+Optimización del Proceso de Sensado: Establecer un método de captura de datos que garantice lecturas consistentes de la altura de los objetos, minimizando el impacto de factores externos en la medición.
+
+
+
+Facilitación de la Operatividad: Proveer las herramientas necesarias para que el usuario final pueda monitorear el conteo de unidades y ajustar los parámetros de clasificación de forma intuitiva y segura.
